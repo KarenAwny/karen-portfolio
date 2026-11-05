@@ -1,0 +1,290 @@
+/* ==========================================================================
+   KAREN AWNY PORTFOLIO — GLOBAL STYLES & DESIGN TOKENS
+   ========================================================================== */
+
+:root {
+  /* Core Color Palette */
+  --bg-main: #15121B;
+  --bg-secondary: #201B27;
+  --bg-card: rgba(32, 27, 39, 0.78);
+  --bg-card-hover: rgba(42, 35, 52, 0.92);
+  --bg-glass: rgba(21, 18, 27, 0.82);
+
+  /* Accent Colors */
+  --accent-primary: #F08BCB;
+  --accent-secondary: #F5C2E1;
+  --accent-glow: rgba(240, 139, 203, 0.28);
+  --accent-soft: rgba(240, 139, 203, 0.12);
+  --accent-border: rgba(240, 139, 203, 0.24);
+  --accent-border-strong: rgba(240, 139, 203, 0.55);
+
+  /* Text Colors */
+  --text-main: #FFFFFF;
+  --text-secondary: #B9B2C3;
+  --text-muted: #8E869B;
+
+  /* Gradients */
+  --gradient-accent: linear-gradient(135deg, #F08BCB 0%, #F5C2E1 100%);
+  --gradient-accent-hover: linear-gradient(135deg, #f49bd3 0%, #f8d0e8 100%);
+  --gradient-surface: linear-gradient(160deg, rgba(38, 31, 48, 0.85) 0%, rgba(25, 21, 33, 0.9) 100%);
+  --gradient-glow: radial-gradient(circle, rgba(240, 139, 203, 0.18) 0%, rgba(21, 18, 27, 0) 70%);
+
+  /* Borders & Shadows */
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --shadow-card: 0 14px 36px -10px rgba(8, 6, 12, 0.65);
+  --shadow-glow: 0 8px 28px -4px rgba(240, 139, 203, 0.25);
+  --shadow-glow-lg: 0 16px 44px -8px rgba(240, 139, 203, 0.32);
+
+  /* Typography */
+  --font-en: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-ar: 'Cairo', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Radii & Transitions */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 9999px;
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Layout */
+  --container-width: 1180px;
+  --nav-height: 80px;
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-en);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Arabic RTL Font & Line Height Adjustments */
+html[dir='rtl'] body {
+  font-family: var(--font-ar);
+  line-height: 1.8;
+}
+
+/* Custom Selection & Scrollbar */
+::selection {
+  background-color: var(--accent-primary);
+  color: var(--bg-main);
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #332B3E;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Accessible Focus Styles */
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 3px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 6rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.section-alt {
+  background: linear-gradient(
+    180deg,
+    rgba(32, 27, 39, 0.35) 0%,
+    rgba(32, 27, 39, 0.65) 50%,
+    rgba(32, 27, 39, 0.35) 100%
+  );
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Section Header Styling */
+.section-header {
+  text-align: center;
+  max-width: 660px;
+  margin: 0 auto 3.75rem;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.38rem 1rem;
+  border-radius: var(--radius-pill);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  color: var(--accent-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+html[dir='rtl'] .section-tag {
+  letter-spacing: 0;
+}
+
+.section-title {
+  font-size: clamp(1.85rem, 3.5vw, 2.55rem);
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.25;
+  margin-bottom: 0.85rem;
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.02rem;
+}
+
+/* Reusable Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--gradient-accent);
+  color: #15121B;
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-primary:hover {
+  background: var(--gradient-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-lg);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-main);
+  border: 1px solid var(--accent-border);
+}
+
+.btn-secondary:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent-primary);
+  color: var(--accent-secondary);
+  transform: translateY(-2px);
+}
+
+/* Lightweight Scroll Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 4.25rem 0;
+  }
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+  .container {
+    padding: 0 1.15rem;
+  }
+}
+
